@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados essenciais -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tutoriais e soluções simples para pequenos problemas domésticos, ajudando o usuário comum a resolver reparos em casa.">
+  <title>Solução para Pequenos Problemas Domésticos</title>
+  <!-- Importando fonte Google: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset e fonte base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ecf0f1;
+      color: #2c3e50;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    /* Cabeçalho moderno com gradiente */
+    header {
+      background: linear-gradient(45deg, #2c3e50, #3498db);
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2.5em;
+    }
+    /* Container principal */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #2980b9;
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 5px;
+    }
+    p {
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    /* Seção Assistente de Reparos */
+    .assistente-reparos {
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #f4faff;
+    }
+    .assistente-reparos select {
+      width: 100%;
+      max-width: 420px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    .assistente-reparos button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .assistente-reparos button:hover {
+      background-color: #2980b9;
+    }
+    .solucao-detalhada {
+      margin-top: 20px;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+      background-color: #f9fcff;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+    /* Seção Assistente Inteligente */
+    .assistente-inteligente {
+      border: 2px solid #27ae60;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #eafaf1;
+      text-align: center;
+    }
+    .assistente-inteligente button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #27ae60;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .assistente-inteligente button:hover {
+      background-color: #1e8449;
+    }
+    /* Estilo para listas de subinstruções */
+    .subinstrucoes {
+      list-style-type: circle;
+      margin-left: 20px;
+    }
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #2c3e50;
+      color: #fff;
+      margin-top: 30px;
+      border-radius: 8px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Solução para Pequenos Problemas Domésticos</h1>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <!-- Seção Assistente de Reparos -->
+    <section id="assistente-reparos" class="assistente-reparos">
+      <h2>Assistente de Reparos</h2>
+      <p>Escolha o problema que você está enfrentando:</p>
+      <select id="lista-reparos">
+        <option value="">-- Selecione uma opção --</option>
+        <option value="torneira">Conserto de Torneira com Vazamento</option>
+        <option value="interruptor">Reparo de Interruptor</option>
+        <option value="lampada">Troca de Lâmpada Queimada</option>
+        <option value="prateleiras">Instalação de Prateleiras</option>
+        <option value="pia">Desentupimento de Pia</option>
+        <option value="porta">Reparação de Porta Desalinhada</option>
+        <option value="fechadura">Conserto de Fechadura</option>
+        <option value="janela">Reparo de Janela com Vedação Ruim</option>
+        <option value="ar_condicionado">Limpeza do Ar Condicionado</option>
+        <option value="cortinas">Instalação de Cortinas</option>
+        <option value="rodapes">Reparação de Rodapés Danificados</option>
+        <option value="tomadas">Reparo de Tomadas</option>
+        <option value="interruptor_falha">Reparo de Interruptor com Falha no Contato</option>
+        <option value="quadro">Reparo do Quadro de Energia</option>
+        <option value="moveis">Ajuste de Móveis</option>
+        <option value="espelho">Conserto de Espelho</option>
+        <option value="suporte_tv">Instalação de Suporte para TV</option>
+        <option value="piso">Reparo de Piso</option>
+        <option value="ralo">Desentupimento de Ralo</option>
+        <option value="chuveiro">Conserto de Chuveiro</option>
+        <option value="aquecedor">Reparo de Aquecedor de Água</option>
+        <option value="maquina_lavar">Conserto de Máquina de Lavar</option>
+        <option value="geladeira">Manutenção de Geladeira</option>
+        <option value="microondas">Reparo de Micro-ondas</option>
+        <option value="forno">Conserto de Forno Elétrico</option>
+        <option value="jardim">Manutenção de Jardim</option>
+        <option value="paredes">Reparação de Paredes com Trincas</option>
+        <option value="tapetes">Reparo de Tapetes Danificados</option>
+        <option value="moveis_danificados">Reparo de Móveis Danificados</option>
+        <option value="sistema_seguranca">Instalação de Sistema de Segurança</option>
+      </select>
+      <br>
+      <button onclick="mostrarSolucao()">Ver Solução</button>
+      <div id="solucao" class="solucao-detalhada" style="display: none;"></div>
+    </section>
+
+    <!-- Seção Assistente Inteligente -->
+    <section id="assistente-inteligente" class="assistente-inteligente">
+      <h2>Assistente Inteligente</h2>
+      <p>Clique no botão abaixo para acessar o Assistente Inteligente e obter ajuda interativa para problemas e reparos domésticos.</p>
+      <button onclick="acessarAssistenteInteligente()">Acessar Assistente Inteligente</button>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 Solução para Pequenos Problemas Domésticos. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    /**
+     * Objeto com soluções simples para cada problema.
+     * As instruções abaixo foram definidas para serem básicas e de fácil realização.
+     */
+    const solucoesReparos = {
+      torneira: `<strong>Conserto de Torneira com Vazamento:</strong>
+                 <p>1. Feche a água:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Feche a chave geral.</li>
+                   <li>b) Abra a torneira para liberar a água.</li>
+                 </ul>
+                 <p>2. Desmonte a torneira:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Retire a tampa com cuidado.</li>
+                   <li>b) Separe as partes internas.</li>
+                 </ul>
+                 <p>3. Verifique as peças:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Confira se alguma peça está gasta.</li>
+                 </ul>
+                 <p>4. Limpe e substitua:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Limpe com um pano.</li>
+                   <li>b) Troque a peça danificada se necessário.</li>
+                 </ul>
+                 <p>5. Monte e teste:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Recoloque tudo na ordem correta.</li>
+                   <li>b) Abra a água e verifique se o vazamento parou.</li>
+                 </ul>`,
+      interruptor: `<strong>Reparo de Interruptor:</strong>
+                    <p>1. Segurança:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Desligue o disjuntor.</li>
+                      <li>b) Confirme que não há energia.</li>
+                    </ul>
+                    <p>2. Retire o interruptor:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Remova a placa com uma chave de fenda.</li>
+                      <li>b) Observe a conexão dos fios.</li>
+                    </ul>
+                    <p>3. Limpe os contatos:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Limpe com um pano seco.</li>
+                    </ul>
+                    <p>4. Reinstale e teste:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Recoloque o interruptor e a placa.</li>
+                      <li>b) Ligue o disjuntor e teste o funcionamento.</li>
+                    </ul>`,
+      lampada: `<strong>Troca de Lâmpada Queimada:</strong>
+                 <p>1. Segurança:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Desligue a luz ou retire a lâmpada da tomada.</li>
+                   <li>b) Espere a lâmpada esfriar.</li>
+                 </ul>
+                 <p>2. Remova a lâmpada:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Gire a lâmpada para soltá-la.</li>
+                   <li>b) Descarte a lâmpada queimada.</li>
+                 </ul>
+                 <p>3. Instale a nova lâmpada:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Use uma lâmpada do mesmo tipo.</li>
+                   <li>b) Gire até fixar.</li>
+                 </ul>
+                 <p>4. Teste:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Ligue a energia e verifique se acende.</li>
+                 </ul>`,
+      prateleiras: `<strong>Instalação de Prateleiras:</strong>
+                    <p>1. Meça o espaço:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Meça a largura e altura desejadas.</li>
+                    </ul>
+                    <p>2. Marque a parede:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Use um lápis e um nível para marcar os pontos.</li>
+                    </ul>
+                    <p>3. Faça furos e fixe:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Perfure a parede e coloque buchas e parafusos.</li>
+                    </ul>
+                    <p>4. Coloque a prateleira:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Apoie a prateleira sobre os suportes.</li>
+                      <li>b) Verifique o nivelamento.</li>
+                    </ul>`,
+      pia: `<strong>Desentupimento de Pia:</strong>
+            <p>1. Limpe resíduos:</p>
+            <ul class="subinstrucoes">
+              <li>a) Retire os resíduos visíveis com luvas.</li>
+            </ul>
+            <p>2. Use o desentupidor:</p>
+            <ul class="subinstrucoes">
+              <li>a) Posicione sobre o ralo e faça movimentos firmes.</li>
+            </ul>
+            <p>3. Aplique água quente:</p>
+            <ul class="subinstrucoes">
+              <li>a) Despeje água quente para dissolver gorduras.</li>
+            </ul>
+            <p>4. Verifique o fluxo:</p>
+            <ul class="subinstrucoes">
+              <li>a) Teste se a água escoa livremente.</li>
+            </ul>`,
+      porta: `<strong>Reparação de Porta Desalinhada:</strong>
+              <p>1. Inspecione a porta:</p>
+              <ul class="subinstrucoes">
+                <li>a) Verifique se as dobradiças estão soltas.</li>
+              </ul>
+              <p>2. Aperte as dobradiças:</p>
+              <ul class="subinstrucoes">
+                <li>a) Use uma chave de fenda para apertar os parafusos.</li>
+              </ul>
+              <p>3. Ajuste com calços (se necessário):</p>
+              <ul class="subinstrucoes">
+                <li>a) Coloque um calço simples para alinhar a porta.</li>
+              </ul>
+              <p>4. Teste a porta:</p>
+              <ul class="subinstrucoes">
+                <li>a) Abra e feche para verificar o ajuste.</li>
+              </ul>`,
+      fechadura: `<strong>Conserto de Fechadura:</strong>
+                  <p>1. Remova a fechadura:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Retire a fechadura com uma chave de fenda.</li>
+                  </ul>
+                  <p>2. Verifique as peças:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Observe se há partes gastas ou sujas.</li>
+                  </ul>
+                  <p>3. Limpe ou substitua:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Limpe com um pano ou troque a peça danificada.</li>
+                  </ul>
+                  <p>4. Reinstale e teste:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Recoloque a fechadura e teste com a chave.</li>
+                  </ul>`,
+      janela: `<strong>Reparo de Janela com Vedação Ruim:</strong>
+                <p>1. Inspecione a vedação:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Verifique se o silicone ou borracha está desgastado.</li>
+                </ul>
+                <p>2. Limpe a área:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Limpe com um pano ao redor da janela.</li>
+                </ul>
+                <p>3. Aplique novo silicone:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Passe uma camada fina de silicone na borda.</li>
+                </ul>
+                <p>4. Deixe secar:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Aguarde algumas horas e teste com água.</li>
+                </ul>`,
+      ar_condicionado: `<strong>Limpeza do Ar Condicionado:</strong>
+                         <p>1. Desligue o aparelho:</p>
+                         <ul class="subinstrucoes">
+                           <li>a) Desligue e desconecte da tomada.</li>
+                         </ul>
+                         <p>2. Limpe o filtro:</p>
+                         <ul class="subinstrucoes">
+                           <li>a) Retire o filtro e lave com água.</li>
+                           <li>b) Seque bem antes de recolocar.</li>
+                         </ul>
+                         <p>3. Limpe a parte externa:</p>
+                         <ul class="subinstrucoes">
+                           <li>a) Passe um pano úmido nas aletas.</li>
+                         </ul>
+                         <p>4. Reinstale e teste:</p>
+                         <ul class="subinstrucoes">
+                           <li>a) Coloque tudo de volta e ligue o aparelho.</li>
+                         </ul>`,
+      cortinas: `<strong>Instalação de Cortinas:</strong>
+                 <p>1. Meça a janela:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Meça a largura e altura desejadas.</li>
+                 </ul>
+                 <p>2. Marque os pontos:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Use um lápis e um nível para marcar na parede ou teto.</li>
+                 </ul>
+                 <p>3. Fixe os suportes:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Faça furos e coloque buchas com parafusos.</li>
+                 </ul>
+                 <p>4. Pendure as cortinas:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Coloque o varão e pendure as cortinas.</li>
+                 </ul>`,
+      rodapes: `<strong>Reparação de Rodapés Danificados:</strong>
+                <p>1. Remova o rodapé:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Retire o rodapé com cuidado.</li>
+                </ul>
+                <p>2. Limpe a área:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Remova restos de cola ou tinta com um pano úmido.</li>
+                </ul>
+                <p>3. Prepare o novo rodapé:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Meça e corte se necessário.</li>
+                </ul>
+                <p>4. Instale e finalize:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Fixe o rodapé e pinte se necessário.</li>
+                </ul>`,
+      tomadas: `<strong>Reparo de Tomadas:</strong>
+                <p>1. Segurança:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Desligue o disjuntor.</li>
+                </ul>
+                <p>2. Abra a tomada:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Retire a tampa com cuidado.</li>
+                </ul>
+                <p>3. Verifique as conexões:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Certifique-se de que os fios estão bem fixos.</li>
+                </ul>
+                <p>4. Feche e teste:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Recoloque a tampa e ligue o disjuntor para testar.</li>
+                </ul>`,
+      interruptor_falha: `<strong>Reparo de Interruptor com Falha no Contato:</strong>
+                          <p>1. Segurança:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Desligue o interruptor.</li>
+                          </ul>
+                          <p>2. Abra o interruptor:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Retire a capa com cuidado.</li>
+                          </ul>
+                          <p>3. Limpe os contatos:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Use um pano seco para limpar os contatos.</li>
+                          </ul>
+                          <p>4. Reinstale e teste:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Monte novamente e ligue para testar.</li>
+                          </ul>`,
+      quadro: `<strong>Reparo do Quadro de Energia:</strong>
+               <p>1. Segurança:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Desligue a energia principal.</li>
+               </ul>
+               <p>2. Abra o quadro:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Retire a tampa com cuidado.</li>
+               </ul>
+               <p>3. Verifique as conexões:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Veja se há fios soltos ou parafusos frouxos.</li>
+               </ul>
+               <p>4. Ajuste e feche:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Aperte os parafusos e reconecte os fios.</li>
+                 <li>b) Feche o quadro e ligue a energia.</li>
+               </ul>`,
+      moveis: `<strong>Ajuste de Móveis:</strong>
+               <p>1. Inspecione o móvel:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Verifique se há parafusos soltos.</li>
+               </ul>
+               <p>2. Aperte os parafusos:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Use uma chave de fenda para apertá-los.</li>
+               </ul>
+               <p>3. Ajuste as peças:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Reposicione as partes que estiverem desalinhadas.</li>
+               </ul>
+               <p>4. Teste:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Verifique se o móvel está firme.</li>
+               </ul>`,
+      espelho: `<strong>Conserto de Espelho:</strong>
+                <p>1. Segurança:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Use luvas para evitar cortes.</li>
+                </ul>
+                <p>2. Remova os cacos:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Retire os pedaços soltos com cuidado.</li>
+                </ul>
+                <p>3. Aplique adesivo:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Passe adesivo específico nas bordas quebradas.</li>
+                </ul>
+                <p>4. Una e deixe secar:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Junte os pedaços e pressione suavemente.</li>
+                  <li>b) Aguarde alguns minutos para fixar.</li>
+                </ul>`,
+      suporte_tv: `<strong>Instalação de Suporte para TV:</strong>
+                   <p>1. Meça o espaço:</p>
+                   <ul class="subinstrucoes">
+                     <li>a) Meça a área e defina a altura ideal.</li>
+                   </ul>
+                   <p>2. Marque os pontos:</p>
+                   <ul class="subinstrucoes">
+                     <li>a) Use um nível para marcar onde fixar os suportes.</li>
+                   </ul>
+                   <p>3. Fixe o suporte:</p>
+                   <ul class="subinstrucoes">
+                     <li>a) Faça furos, coloque buchas e parafusos.</li>
+                   </ul>
+                   <p>4. Monte a TV:</p>
+                   <ul class="subinstrucoes">
+                     <li>a) Siga o manual para prender a TV no suporte.</li>
+                   </ul>`,
+      piso: `<strong>Reparo de Piso:</strong>
+             <p>1. Identifique a área:</p>
+             <ul class="subinstrucoes">
+               <li>a) Veja onde o piso está solto ou danificado.</li>
+             </ul>
+             <p>2. Remova a peça danificada:</p>
+             <ul class="subinstrucoes">
+               <li>a) Retire com cuidado a parte solta.</li>
+             </ul>
+             <p>3. Limpe a área:</p>
+             <ul class="subinstrucoes">
+               <li>a) Limpe restos de adesivo e sujeira.</li>
+             </ul>
+             <p>4. Repare ou substitua:</p>
+             <ul class="subinstrucoes">
+               <li>a) Aplique adesivo e fixe a peça ou coloque uma nova.</li>
+             </ul>
+             <p>5. Teste:</p>
+             <ul class="subinstrucoes">
+               <li>a) Verifique se o piso está firme e nivelado.</li>
+             </ul>`,
+      ralo: `<strong>Desentupimento de Ralo:</strong>
+             <p>1. Remova a tampa:</p>
+             <ul class="subinstrucoes">
+               <li>a) Retire a tampa do ralo com cuidado.</li>
+             </ul>
+             <p>2. Retire os resíduos:</p>
+             <ul class="subinstrucoes">
+               <li>a) Remova o que estiver obstruindo com as mãos (use luvas) ou um desentupidor.</li>
+             </ul>
+             <p>3. Despeje água quente:</p>
+             <ul class="subinstrucoes">
+               <li>a) Use água quente para limpar o ralo.</li>
+             </ul>
+             <p>4. Verifique o fluxo:</p>
+             <ul class="subinstrucoes">
+               <li>a) Teste para ver se a água escoa livremente.</li>
+             </ul>`,
+      chuveiro: `<strong>Conserto de Chuveiro:</strong>
+                 <p>1. Segurança:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Desligue o chuveiro e feche a água.</li>
+                 </ul>
+                 <p>2. Desmonte a cabeça do chuveiro:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Retire a cabeça com cuidado.</li>
+                 </ul>
+                 <p>3. Verifique as juntas:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Veja se estão sujas ou desgastadas.</li>
+                 </ul>
+                 <p>4. Limpe ou troque:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Limpe com um pano ou substitua se necessário.</li>
+                 </ul>
+                 <p>5. Monte e teste:</p>
+                 <ul class="subinstrucoes">
+                   <li>a) Reinstale a cabeça e abra a água.</li>
+                 </ul>`,
+      aquecedor: `<strong>Reparo de Aquecedor de Água:</strong>
+                  <p>1. Desligue e drene:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Desligue o aquecedor e feche a água.</li>
+                    <li>b) Deixe a água escorrer.</li>
+                  </ul>
+                  <p>2. Limpe o interior:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Abra com cuidado e limpe com um pano.</li>
+                  </ul>
+                  <p>3. Feche e teste:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Recoloque tudo e ligue o aquecedor.</li>
+                    <li>b) Verifique se aquece bem.</li>
+                  </ul>`,
+      maquina_lavar: `<strong>Conserto de Máquina de Lavar:</strong>
+                      <p>1. Desligue a máquina:</p>
+                      <ul class="subinstrucoes">
+                        <li>a) Retire da tomada.</li>
+                      </ul>
+                      <p>2. Verifique:</p>
+                      <ul class="subinstrucoes">
+                        <li>a) Veja se há vazamentos ou ruídos estranhos.</li>
+                      </ul>
+                      <p>3. Limpe os filtros:</p>
+                      <ul class="subinstrucoes">
+                        <li>a) Retire e lave os filtros.</li>
+                      </ul>
+                      <p>4. Teste:</p>
+                      <ul class="subinstrucoes">
+                        <li>a) Ligue e faça um ciclo curto para testar.</li>
+                      </ul>`,
+      geladeira: `<strong>Manutenção de Geladeira:</strong>
+                  <p>1. Desligue e retire alimentos:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Desconecte a geladeira e retire os itens.</li>
+                  </ul>
+                  <p>2. Limpe o interior:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Use água morna com bicarbonato para limpar.</li>
+                  </ul>
+                  <p>3. Troque o filtro (se necessário):</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Siga as instruções do fabricante para trocar o filtro.</li>
+                  </ul>
+                  <p>4. Reorganize e ligue:</p>
+                  <ul class="subinstrucoes">
+                    <li>a) Recoloque prateleiras e alimentos.</li>
+                    <li>b) Ligue a geladeira e verifique.</li>
+                  </ul>`,
+      microondas: `<strong>Reparo de Micro-ondas:</strong>
+                    <p>1. Desconecte:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Retire da tomada.</li>
+                    </ul>
+                    <p>2. Espere esfriar:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Aguarde alguns minutos.</li>
+                    </ul>
+                    <p>3. Inspecione:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Verifique se há partes quebradas ou sujas.</li>
+                    </ul>
+                    <p>4. Limpe:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Limpe com um pano úmido.</li>
+                    </ul>
+                    <p>5. Teste:</p>
+                    <ul class="subinstrucoes">
+                      <li>a) Conecte novamente e veja se funciona.</li>
+                    </ul>`,
+      forno: `<strong>Conserto de Forno Elétrico:</strong>
+              <p>1. Desligue e espere esfriar:</p>
+              <ul class="subinstrucoes">
+                <li>a) Desconecte o forno e aguarde esfriar.</li>
+              </ul>
+              <p>2. Inspecione os elementos:</p>
+              <ul class="subinstrucoes">
+                <li>a) Veja se os elementos de aquecimento estão intactos.</li>
+              </ul>
+              <p>3. Limpe o interior:</p>
+              <ul class="subinstrucoes">
+                <li>a) Remova resíduos e gordura com um pano úmido.</li>
+              </ul>
+              <p>4. Troque peças (se necessário):</p>
+              <ul class="subinstrucoes">
+                <li>a) Substitua peças danificadas conforme o manual.</li>
+              </ul>
+              <p>5. Teste:</p>
+              <ul class="subinstrucoes">
+                <li>a) Ligue o forno e verifique se aquece corretamente.</li>
+              </ul>`,
+      jardim: `<strong>Manutenção de Jardim:</strong>
+               <p>1. Inspecione o jardim:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Veja se as plantas precisam de poda ou rega.</li>
+               </ul>
+               <p>2. Verifique a irrigação:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Observe se há vazamentos ou entupimentos nos tubos.</li>
+               </ul>
+               <p>3. Limpe o sistema:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Limpe os filtros e bicos com água.</li>
+               </ul>
+               <p>4. Poda e adube:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Pode galhos secos e aplique adubo simples.</li>
+               </ul>
+               <p>5. Teste:</p>
+               <ul class="subinstrucoes">
+                 <li>a) Ligue o sistema de irrigação e verifique.</li>
+               </ul>`,
+      paredes: `<strong>Reparação de Paredes com Trincas:</strong>
+                <p>1. Inspecione a parede:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Veja onde estão as trincas ou rachaduras.</li>
+                </ul>
+                <p>2. Remova resíduos soltos:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Use uma espátula para remover pedaços soltos.</li>
+                </ul>
+                <p>3. Aplique massa corrida:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Preencha as trincas com massa corrida.</li>
+                </ul>
+                <p>4. Alise e deixe secar:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Use uma desempenadeira para alisar.</li>
+                  <li>b) Aguarde a secagem completa.</li>
+                </ul>
+                <p>5. Pinte:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Pinte a área para igualar a cor da parede.</li>
+                </ul>`,
+      tapetes: `<strong>Reparo de Tapetes Danificados:</strong>
+                <p>1. Inspecione o tapete:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Veja onde o tapete está rasgado ou gasto.</li>
+                </ul>
+                <p>2. Faça reparos simples:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Use adesivo para tecido em áreas pequenas.</li>
+                </ul>
+                <p>3. Remende se necessário:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Se o dano for maior, costure um pedaço de tecido compatível.</li>
+                </ul>
+                <p>4. Finalize:</p>
+                <ul class="subinstrucoes">
+                  <li>a) Deixe secar e limpe para uniformizar.</li>
+                </ul>`,
+      moveis_danificados: `<strong>Reparo de Móveis Danificados:</strong>
+                           <p>1. Inspecione o móvel:</p>
+                           <ul class="subinstrucoes">
+                             <li>a) Verifique se há partes soltas ou rachaduras.</li>
+                           </ul>
+                           <p>2. Aplique cola:</p>
+                           <ul class="subinstrucoes">
+                             <li>a) Passe cola para madeira nas áreas afetadas.</li>
+                           </ul>
+                           <p>3. Reforce com parafusos:</p>
+                           <ul class="subinstrucoes">
+                             <li>a) Use parafusos ou pregos para fixar as partes.</li>
+                           </ul>
+                           <p>4. Acabe com pintura ou verniz:</p>
+                           <ul class="subinstrucoes">
+                             <li>a) Lixe e pinte ou envernize para finalizar.</li>
+                           </ul>`,
+      sistema_seguranca: `<strong>Instalação de Sistema de Segurança:</strong>
+                          <p>1. Planeje a instalação:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Decida onde colocar câmeras e alarmes.</li>
+                          </ul>
+                          <p>2. Verifique os equipamentos:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Confirme que os dispositivos funcionam corretamente.</li>
+                          </ul>
+                          <p>3. Instale os dispositivos:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Siga as instruções para fixá-los na parede.</li>
+                          </ul>
+                          <p>4. Teste o sistema:</p>
+                          <ul class="subinstrucoes">
+                            <li>a) Ligue o sistema e verifique o funcionamento.</li>
+                          </ul>`
+    };
+
+    /**
+     * Função para exibir a solução detalhada do reparo selecionado.
+     */
+    function mostrarSolucao() {
+      const lista = document.getElementById('lista-reparos');
+      const solucaoDiv = document.getElementById('solucao');
+      const reparoSelecionado = lista.value;
+      
+      if (reparoSelecionado === "") {
+        solucaoDiv.style.display = 'none';
+        solucaoDiv.innerHTML = "";
+        alert("Por favor, selecione uma opção para ver a solução.");
+      } else {
+        solucaoDiv.innerHTML = solucoesReparos[reparoSelecionado] || "Solução não encontrada para a opção selecionada.";
+        solucaoDiv.style.display = 'block';
+      }
+    }
+
+    /**
+     * Função para acessar o Assistente Inteligente em uma nova aba.
+     */
+    function acessarAssistenteInteligente() {
+      window.open("https://chatgpt.com/g/g-67c4afc4bbf88191bbcbc0021974e3e0-assistente-para-problemas-e-reparos-domesticos", "_blank");
+    }
+  </script>
+</body>
+</html>
